@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rocket's | Panadería Artesanal & Pastelería</title>
-
     <meta name="description" content="Catálogo digital premium de Panadería y Pastelería Rocket's. Pedidos online directos a WhatsApp. Envíos en Huancayo.">
 
-    <!-- SEO JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -31,29 +29,369 @@
     }
     </script>
 
-    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-    <!-- ESTILOS -->
-    <link rel="stylesheet" href="styles.css" />
+    <style>
+        :root {
+            --color-primary: #D35400;
+            --color-primary-dark: #A04000;
+            --color-secondary: #2C3E50;
+            --color-accent: #F39C12;
+            --color-bg: #FDFBF7;
+            --color-card-bg: #FFFFFF;
+            --color-text-main: #2D3436;
+            --color-text-muted: #636E72;
+            --color-whatsapp: #25D366;
+
+            --brand-yape: #742284;
+            --brand-plin: #00C8FA;
+            --brand-bcp: #002A8D;
+            --brand-bbva: #004481;
+            --brand-visa: #1A1F71;
+
+            --border-radius-lg: 16px;
+            --border-radius-md: 12px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+            --shadow-hover: 0 12px 32px rgba(211, 84, 0, 0.15);
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        *{box-sizing:border-box;margin:0;padding:0;outline:none;}
+        body{
+            font-family:'Inter',sans-serif;
+            background-color:var(--color-bg);
+            color:var(--color-text-main);
+            line-height:1.6;
+        }
+
+        h1,h2,h3,h4{
+            font-family:'Playfair Display',serif;
+            color:var(--color-secondary);
+        }
+        a{text-decoration:none;color:inherit;}
+        img{display:block;max-width:100%;}
+
+        .container{
+            width:100%;
+            max-width:1200px;
+            margin:0 auto;
+            padding:0 1.5rem;
+        }
+
+        .navbar{
+            position:sticky;
+            top:0;
+            z-index:1000;
+            background:rgba(255,255,255,0.95);
+            backdrop-filter:blur(10px);
+            border-bottom:1px solid rgba(0,0,0,0.05);
+            padding:0.8rem 0;
+            box-shadow:var(--shadow-sm);
+        }
+
+        .nav-inner{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .brand{display:flex;align-items:center;gap:1rem;}
+        .brand img{
+            height:50px;
+            border-radius:50%;
+            border:2px solid var(--color-primary);
+        }
+
+        .btn-contact{
+            padding:0.5rem 1rem;
+            border:1px solid var(--color-primary);
+            color:var(--color-primary);
+            border-radius:50px;
+            font-size:0.9rem;
+            font-weight:500;
+            transition:var(--transition-smooth);
+        }
+        .btn-contact:hover{background:var(--color-primary);color:white;}
+
+        .hero{
+            padding:4rem 0;
+            background:linear-gradient(135deg,#FFF6E8 0%,#FFE9D6 100%);
+            border-bottom-left-radius:50px;
+            border-bottom-right-radius:50px;
+            margin-bottom:3rem;
+        }
+
+        .hero-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:4rem;
+            align-items:center;
+        }
+
+        .hero-content h2{
+            font-size:3.5rem;
+            line-height:1.1;
+            margin-bottom:1.5rem;
+        }
+        .hero-content h2 span{color:var(--color-primary);}
+
+        .cta-group{display:flex;gap:1rem;}
+
+        .btn-primary{
+            background:var(--color-primary);
+            color:white;
+            padding:1rem 2rem;
+            border-radius:50px;
+            font-weight:600;
+            border:none;
+            box-shadow:0 4px 15px rgba(211,84,0,0.3);
+            transition:var(--transition-smooth);
+        }
+        .btn-primary:hover{
+            transform:translateY(-2px);
+            box-shadow:0 8px 20px rgba(211,84,0,0.4);
+            background:var(--color-primary-dark);
+        }
+
+        .products-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+            gap:2rem;
+            padding-bottom:4rem;
+        }
+
+        .product-card{
+            background:white;
+            border-radius:16px;
+            overflow:hidden;
+            border:1px solid rgba(0,0,0,0.05);
+            box-shadow:var(--shadow-sm);
+            display:flex;
+            flex-direction:column;
+            transition:var(--transition-smooth);
+        }
+
+        .product-card:hover{
+            transform:translateY(-8px);
+            box-shadow:var(--shadow-hover);
+        }
+
+        .card-image{position:relative;height:180px;overflow:hidden;}
+        .card-image img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            transition:0.4s ease;
+        }
+        .product-card:hover .card-image img{transform:scale(1.1);}
+
+        .badge{
+            position:absolute;
+            top:1rem;
+            left:1rem;
+            background:white;
+            padding:0.3rem 0.8rem;
+            border-radius:20px;
+            font-size:0.75rem;
+            font-weight:700;
+            color:var(--color-primary);
+            box-shadow:var(--shadow-sm);
+        }
+
+        .card-content{
+            padding:1.5rem;
+            display:flex;
+            flex-direction:column;
+            flex-grow:1;
+        }
+
+        .card-title{
+            font-size:1.15rem;
+            font-weight:700;
+            margin-bottom:0.5rem;
+            font-family:'Playfair Display',serif;
+        }
+
+        .card-desc{
+            font-size:0.9rem;
+            color:var(--color-text-muted);
+            flex-grow:1;
+            margin-bottom:1rem;
+        }
+
+        .card-footer{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding-top:1rem;
+            border-top:1px solid #eee;
+        }
+
+        .price{
+            font-size:1.2rem;
+            font-weight:700;
+            color:var(--color-secondary);
+        }
+
+        .btn-add{
+            background:var(--color-primary);
+            color:white;
+            width:38px;
+            height:38px;
+            border-radius:50%;
+            border:none;
+            font-size:1.5rem;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            transition:var(--transition-smooth);
+        }
+
+        .btn-add:hover{
+            background:var(--color-secondary);
+            transform:rotate(90deg);
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- TU NAVBAR -->
-    <!-- (todo el contenido visual permanece igual, solo movimos el CSS y JS afuera) -->
-    <!-- =================== -->
-    <!-- PEGAR AQUÍ TODO EL HTML QUE YA TIENES, SIN NADA DEL <style> NI <script> -->
-    <!-- =================== -->
+<header class="navbar">
+    <div class="container nav-inner">
+        <div class="brand">
+            <img src="https://i.postimg.cc/zvyMjS1f/logo.jpg">
+            <div>
+                <h1>Rocket's</h1>
+                <span>Panadería & Pastelería</span>
+            </div>
+        </div>
+        <a class="btn-contact" target="_blank"
+           href="https://wa.me/51925940657?text=Hola!%20Estoy%20visitando%20su%20cat%C3%A1logo.">
+           Contactar
+        </a>
+    </div>
+</header>
 
-    <!-- Coloca aquí TODO EL HTML que me pasaste -->
-    <!-- (ya no incluyas estilos ni scripts embebidos) -->
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="hero-content">
+            <h2>El sabor de lo <br><span>Recién Horneado</span></h2>
+            <p>Descubre nuestros productos artesanales hechos con amor.</p>
+            <div class="cta-group">
+                <button class="btn-primary" onclick="scrollToMenu()">Ver Menú</button>
+            </div>
+        </div>
 
-    <!-- BOTÓN CARRITO, TOAST, SIDEBAR, FOOTER... -->
-    <!-- TODO tu contenido original del body debe ir aquí -->
+        <div class="hero-image-container">
+            <img src="https://i.postimg.cc/43rBGkC9/Cachitor.jpg" style="border-radius:16px;">
+        </div>
+    </div>
+</section>
 
-    <!-- SCRIPTS -->
-    <script src="app.js"></script>
+<div class="container" id="menu-start">
+    <div style="text-align:center;margin-bottom:2rem;">
+        <input type="search" id="searchInput" placeholder="Buscar…" 
+               style="padding:0.8rem 1rem;width:100%;max-width:400px;border-radius:50px;border:1px solid #ddd;">
+    </div>
+
+    <div class="products-grid" id="productsContainer">
+        <!-- JS RENDER -->
+    </div>
+</div>
+
+<footer style="background:#2C3E50;color:white;text-align:center;padding:2rem 0;">
+    <h3 style="color:white;">Rocket's</h3>
+    <p>San Pedro de Saño - Huancayo</p>
+</footer>
+<script>
+// ===============================
+// BASE DE DATOS DE PRODUCTOS
+// ===============================
+const productsDB = [
+    { id:1, name:"Cachito", price:1.50, cat:"dulces", img:"https://i.postimg.cc/HLfBmDGM/cachito.webp", desc:"Clásico, doradito y suave."},
+    { id:2, name:"Alfajor", price:2.00, cat:"dulces", img:"https://i.postimg.cc/VN3DwQyd/Alfajor.webp", desc:"Relleno de manjar blanco."},
+    { id:3, name:"Pie de Piña", price:2.00, cat:"dulces", img:"https://i.postimg.cc/W3gSbWj7/piepina.jpg", desc:"Frutal y refrescante."},
+    { id:4, name:"Pie de Manzana", price:2.00, cat:"dulces", img:"https://i.postimg.cc/PxYKr3hW/manzana.jpg", desc:"Con toque de canela."},
+    { id:5, name:"Budín", price:1.00, cat:"dulces", img:"https://i.postimg.cc/CKWm0Tyf/bodin.jpg", desc:"Húmedo y tradicional."},
+    { id:6, name:"Queque Chocolate", price:1.50, cat:"dulces", img:"https://i.postimg.cc/k4KwX19t/kequechoc.jpg", desc:"Puro cacao."},
+    { id:7, name:"Queque Vainilla", price:1.50, cat:"dulces", img:"https://i.postimg.cc/sX7KD6yB/kekevai.jpg", desc:"Aromático y suave."},
+    { id:8, name:"Leche Asada", price:1.50, cat:"dulces", img:"https://i.postimg.cc/26hT8cmZ/lechea.jpg", desc:"Cremosa receta casera."},
+    { id:9, name:"Pionono", price:1.50, cat:"dulces", img:"https://i.postimg.cc/KzBQvqFQ/pionono.jpg", desc:"Enrollado con manjar."},
+    { id:10,name:"Ojo de Buey", price:1.50, cat:"dulces", img:"https://i.postimg.cc/26hT8cm4/ojo-voy.jpg", desc:"Centro dulce suave."},
+    { id:11,name:"Enrollado Canela", price:4.00, cat:"dulces", img:"https://i.postimg.cc/B6HNQYsp/rollo.jpg", desc:"Estilo cinnamon roll."},
+    { id:12,name:"Enrollado Hot Dog", price:1.50, cat:"salados", img:"https://i.postimg.cc/FR3GsWmz/hot.jpg", desc:"Favorito de los niños."},
+    { id:13,name:"Empanada Mixta", price:3.00, cat:"salados", img:"https://i.postimg.cc/63nz5jw3/empa.jpg", desc:"Jamón y queso."},
+    { id:14,name:"Empanada Carne", price:3.00, cat:"salados", img:"https://i.postimg.cc/N0WptqhT/carne.jpg", desc:"Jugosa y casera."},
+    { id:15,name:"Empanada Pollo", price:3.00, cat:"salados", img:"https://i.postimg.cc/JnZK46mq/pollo.jpg", desc:"Pollo deshilachado."},
+    { id:16,name:"Galletas Choco (x3)", price:1.50, cat:"promos", img:"https://i.postimg.cc/B6HNQYsv/choco.jpg", desc:"Crujientes deliciosas."},
+    { id:17,name:"Galletas Maicena (x2)", price:1.50, cat:"promos", img:"https://i.postimg.cc/4dVwNLZt/maicena.webp", desc:"Se derriten en boca."},
+    { id:18,name:"Empanaditas Boda (x2)", price:1.50, cat:"promos", img:"https://i.postimg.cc/R0jXm5rJ/boda.webp", desc:"Bocaditos dulces."},
+    { id:19,name:"Panes de Maíz (x4)", price:1.00, cat:"promos", img:"https://i.postimg.cc/wvLFTfHN/maiz.jpg", desc:"Perfectos para lonche."}
+];
+
+// ===============================
+// RENDERIZAR PRODUCTOS
+// ===============================
+function renderProducts(search="") {
+    const container = document.getElementById("productsContainer");
+    container.innerHTML = "";
+
+    const filtered = productsDB.filter(p =>
+        p.name.toLowerCase().includes(search.toLowerCase())
+    );
+
+    filtered.forEach(p => {
+        container.innerHTML += `
+        <article class="product-card">
+            <div class="card-image">
+                <img src="${p.img}">
+                <span class="badge">${p.cat}</span>
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">${p.name}</h3>
+                <p class="card-desc">${p.desc}</p>
+                <div class="card-footer">
+                    <div class="price">S/ ${p.price.toFixed(2)}</div>
+                    <button class="btn-add" onclick="addToCart(${p.id})">+</button>
+                </div>
+            </div>
+        </article>`;
+    });
+}
+
+// ===============================
+// BUSCADOR
+// ===============================
+document.getElementById("searchInput").addEventListener("input", e => {
+    renderProducts(e.target.value);
+});
+
+// ===============================
+// CARRITO
+// ===============================
+let cart = [];
+
+function addToCart(id) {
+    const product = productsDB.find(p => p.id === id);
+
+    const exists = cart.find(item => item.id === id);
+    if (exists) exists.qty++;
+    else cart.push({ ...product, qty: 1 });
+
+    alert("Producto agregado: " + product.name);
+}
+
+function scrollToMenu() {
+    document.getElementById("menu-start").scrollIntoView({ behavior: "smooth" });
+}
+
+// Inicializar
+renderProducts();
+</script>
 
 </body>
 </html>
+
