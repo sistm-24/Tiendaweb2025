@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rocket's | Panadería Artesanal & Pastelería</title>
-    <meta name="description" content="Catálogo digital premium de Panadería y Pastelería Rocket's. Pedidos online directos a WhatsApp. Envíos en Huancayo.">
+    <title>Rocket's | Panadería Artesanal que Enamora</title>
+    <meta name="description" content="Catálogo digital premium de Panadería y Pastelería Rocket's. Pide tus antojos online. Envíos rápidos en Huancayo.">
     
-    <!-- SEO: Datos Estructurados (JSON-LD) para Google -->
+    <!-- SEO: Datos Estructurados (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -33,18 +33,18 @@
     <!-- Tipografías Profesionales -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
     <style>
         /* =========================================================
-           SISTEMA DE DISEÑO (DESIGN TOKENS)
+           SISTEMA DE DISEÑO
            ========================================================= */
         :root {
             --color-primary: #D35400;
             --color-primary-dark: #A04000;
             --color-secondary: #2C3E50;
             --color-accent: #F39C12;
-            --color-bg: #FDFBF7;
+            --color-bg: #FFFBF2; /* Crema más cálido */
             --color-card-bg: #FFFFFF;
             --color-text-main: #2D3436;
             --color-text-muted: #636E72;
@@ -59,21 +59,31 @@
 
             --border-radius-lg: 16px;
             --border-radius-md: 12px;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
-            --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
-            --shadow-hover: 0 12px 32px rgba(211, 84, 0, 0.15);
+            --shadow-sm: 0 4px 12px rgba(0,0,0,0.03);
+            --shadow-md: 0 8px 30px rgba(0,0,0,0.06);
+            --shadow-hover: 0 20px 40px rgba(211, 84, 0, 0.12);
             --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        /* Reset y Base */
         * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
         
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--color-bg);
+            
+            /* INTEGRACIÓN DE IMAGEN DE FONDO CON OVERLAY */
+            background-image: 
+                linear-gradient(rgba(255, 251, 242, 0.92), rgba(255, 233, 214, 0.88)),
+                url('fundo 2.jpg'); 
+            
+            background-size: cover;       
+            background-position: center;  
+            background-attachment: fixed; 
+            background-repeat: no-repeat;
+            
             color: var(--color-text-main);
             line-height: 1.6;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--color-secondary); }
@@ -93,9 +103,9 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(211, 84, 0, 0.08); /* Sutil borde naranja */
             padding: 0.8rem 0;
             box-shadow: var(--shadow-sm);
         }
@@ -103,224 +113,298 @@
         .nav-inner { display: flex; justify-content: space-between; align-items: center; }
         .brand { display: flex; align-items: center; gap: 1rem; }
         .brand img { height: 50px; border-radius: 50%; border: 2px solid var(--color-primary); }
-        .brand-text h1 { font-size: 1.5rem; line-height: 1; color: var(--color-primary); }
+        .brand-text h1 { font-size: 1.5rem; line-height: 1; color: var(--color-primary); font-weight: 800; }
         .brand-text span { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--color-text-muted); }
         
         .btn-contact {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--color-primary);
+            padding: 0.6rem 1.2rem;
+            border: 2px solid var(--color-primary); /* Borde más visible */
             color: var(--color-primary);
             border-radius: 50px;
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 700;
             transition: var(--transition-smooth);
         }
-        .btn-contact:hover { background: var(--color-primary); color: white; }
+        .btn-contact:hover { background: var(--color-primary); color: white; box-shadow: 0 4px 15px rgba(211, 84, 0, 0.2); }
 
         /* Hero */
         .hero {
-            padding: 4rem 0;
-            background: linear-gradient(135deg, #FFF6E8 0%, #FFE9D6 100%);
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
+            padding: 5rem 0;
+            /* Hacemos el fondo del hero un poco transparente para dejar ver la textura de atrás */
+            background: linear-gradient(135deg, rgba(255, 246, 232, 0.7) 0%, rgba(255, 233, 214, 0.7) 100%);
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 60px;
             margin-bottom: 3rem;
+            overflow: hidden;
+            position: relative;
+            backdrop-filter: blur(5px); /* Efecto vidrio esmerilado */
+            border: 1px solid rgba(255,255,255,0.4);
         }
-        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .hero-content h2 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; }
-        .hero-content h2 span { color: var(--color-primary); }
-        .hero-content p { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 2rem; max-width: 450px; }
-        .cta-group { display: flex; gap: 1rem; }
+        
+        /* Decoración de fondo sutil (mancha orgánica) */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px; right: -50px;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(255, 165, 0, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
+        .hero-content h2 { font-size: 3.8rem; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px; }
+        .hero-content h2 span { color: var(--color-primary); position: relative; display: inline-block; }
+        /* Subrayado creativo */
+        .hero-content h2 span::after {
+            content: ''; position: absolute; bottom: 5px; left: 0; width: 100%; height: 12px;
+            background: rgba(255, 165, 0, 0.2); z-index: -1; transform: rotate(-2deg); border-radius: 4px;
+        }
+
+        .hero-content p { font-size: 1.2rem; color: var(--color-text-muted); margin-bottom: 2.5rem; max-width: 480px; font-weight: 400; }
+        .cta-group { display: flex; gap: 1rem; align-items: center; }
         
         .btn-primary {
-            background: var(--color-primary); color: white; padding: 1rem 2rem;
-            border-radius: 50px; font-weight: 600; border: none;
-            box-shadow: 0 4px 15px rgba(211, 84, 0, 0.3); transition: var(--transition-smooth);
+            background: linear-gradient(45deg, var(--color-primary), #E67E22); /* Gradiente en botón */
+            color: white; padding: 1.1rem 2.2rem;
+            border-radius: 50px; font-weight: 700; border: none;
+            box-shadow: 0 10px 25px rgba(211, 84, 0, 0.3); 
+            transition: var(--transition-smooth);
+            font-size: 1.05rem;
+            display: inline-flex; align-items: center; gap: 0.5rem;
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(211, 84, 0, 0.4); background: var(--color-primary-dark); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(211, 84, 0, 0.4); filter: brightness(1.1); }
 
-        .hero-card {
-            background: white; padding: 1rem; border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-md); transform: rotate(-3deg); transition: var(--transition-smooth);
-            max-width: 400px; margin: 0 auto;
+        .btn-secondary-link {
+            display: flex; align-items: center; color: var(--color-secondary); font-weight: 600;
+            padding: 0.5rem 1rem; border-radius: 50px; transition: var(--transition-smooth);
         }
-        .hero-card:hover { transform: rotate(0deg) scale(1.02); }
-        .hero-card img { border-radius: var(--border-radius-md); width: 100%; height: 300px; object-fit: cover; }
+        .btn-secondary-link:hover { background: rgba(0,0,0,0.05); color: var(--color-primary); }
+
+        /* --- ANIMACIÓN TARJETA HERO --- */
+        .hero-card {
+            background: white; padding: 1.2rem; border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md); max-width: 380px; margin: 0 auto;
+            transform: translateX(0) rotate(-3deg); opacity: 1;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+        }
+        /* Etiqueta flotante en la imagen */
+        .hero-tag {
+            position: absolute; top: -15px; right: -15px;
+            background: var(--color-secondary); color: white;
+            padding: 0.5rem 1rem; border-radius: 50px;
+            font-weight: 700; font-size: 0.85rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: rotate(3deg); z-index: 10;
+        }
+
+        .hero-card:hover { transform: rotate(0deg) scale(1.03); }
+        .hero-card.slide-exit { transform: translateX(-120%) rotate(-15deg); opacity: 0; }
+        .hero-card.slide-enter-start { transition: none; transform: translateX(120%) rotate(15deg); opacity: 0; }
+        .hero-card-inner { transition: opacity 0.5s ease-in-out; opacity: 1; }
+        .hero-card-inner.fade-out { opacity: 0; }
+        .hero-card img { border-radius: var(--border-radius-md); width: 100%; height: 320px; object-fit: cover; }
 
         /* Filtros y Búsqueda */
-        .controls-section { text-align: center; margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+        .controls-section { text-align: center; margin-bottom: 3rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
         
-        .search-container {
-            position: relative;
-            width: 100%;
-            max-width: 400px;
-        }
+        .search-container { position: relative; width: 100%; max-width: 450px; }
         .search-input {
-            width: 100%;
-            padding: 0.8rem 1rem 0.8rem 2.5rem;
-            border-radius: 50px;
-            border: 1px solid #ddd;
-            font-family: inherit;
-            box-shadow: var(--shadow-sm);
+            width: 100%; padding: 1rem 1.5rem 1rem 3rem;
+            border-radius: 50px; border: 2px solid transparent;
+            font-family: inherit; font-size: 1rem;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             transition: var(--transition-smooth);
         }
-        .search-input:focus { border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(211, 84, 0, 0.1); }
-        .search-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); opacity: 0.5; }
+        .search-input:focus { border-color: var(--color-primary); box-shadow: 0 5px 20px rgba(211, 84, 0, 0.15); }
+        .search-icon { position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); opacity: 0.4; font-size: 1.2rem; }
 
-        .filter-tabs { display: inline-flex; background: white; padding: 0.4rem; border-radius: 50px; box-shadow: var(--shadow-sm); gap: 0.3rem; flex-wrap: wrap; justify-content: center; }
-        .filter-btn { background: transparent; border: none; padding: 0.6rem 1.2rem; border-radius: 40px; font-weight: 500; color: var(--color-text-muted); transition: var(--transition-smooth); font-size: 0.9rem; }
-        .filter-btn.active, .filter-btn:hover { background: var(--color-secondary); color: white; }
+        .filter-tabs { display: inline-flex; background: white; padding: 0.5rem; border-radius: 50px; box-shadow: var(--shadow-sm); gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+        .filter-btn { background: transparent; border: none; padding: 0.7rem 1.5rem; border-radius: 40px; font-weight: 600; color: var(--color-text-muted); transition: var(--transition-smooth); font-size: 0.95rem; cursor: pointer; }
+        .filter-btn.active, .filter-btn:hover { background: var(--color-secondary); color: white; transform: translateY(-1px); }
 
-        /* Grid Productos */
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 2rem; padding-bottom: 4rem; }
-        .product-card { background: var(--color-card-bg); border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,0.03); transition: var(--transition-smooth); display: flex; flex-direction: column; }
-        .product-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+        /* --- ANIMACIÓN ESCALONADA TIPO "SIERRA" (WAVE) --- */
+        @keyframes slideInSierra { 
+            0% { 
+                opacity: 0; 
+                transform: translateY(50px) scale(0.9); /* Empieza más abajo y pequeño */
+            } 
+            100% { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); /* Termina en su lugar y tamaño normal */
+            } 
+        }
+
+        .products-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+            gap: 2.5rem; 
+            padding-bottom: 5rem; 
+            transition: opacity 0.3s ease;
+        }
         
-        .card-image { position: relative; height: 180px; overflow: hidden; }
-        .card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        /* Clase para ocultar el grid antes de la nueva animación */
+        .products-grid.grid-hidden {
+            opacity: 0;
+        }
+
+        .product-card { 
+            background: var(--color-card-bg); border-radius: var(--border-radius-lg); 
+            overflow: hidden; box-shadow: var(--shadow-sm); 
+            border: 1px solid rgba(0,0,0,0.02); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+            display: flex; flex-direction: column;
+            
+            /* Estado inicial invisible */
+            opacity: 0; 
+            /* La animación se define aquí pero el delay se inyecta por JS */
+            animation: slideInSierra 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .product-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
+        
+        .card-image { position: relative; height: 200px; overflow: hidden; }
+        .card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .product-card:hover .card-image img { transform: scale(1.1); }
-        
-        .badge { position: absolute; top: 1rem; left: 1rem; background: rgba(255, 255, 255, 0.95); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: var(--color-primary); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .badge { position: absolute; top: 1rem; left: 1rem; background: rgba(255, 255, 255, 0.95); padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: var(--color-primary); box-shadow: 0 4px 10px rgba(0,0,0,0.1); letter-spacing: 0.5px; text-transform: uppercase; }
         
         .card-content { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
-        .card-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
-        .card-desc { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 1rem; flex-grow: 1; }
+        .card-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; color: var(--color-text-main); }
+        .card-desc { font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 1.2rem; flex-grow: 1; line-height: 1.5; }
         
         .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid #f0f0f0; }
-        .price { font-size: 1.2rem; font-weight: 700; color: var(--color-secondary); }
-        .btn-add { background: var(--color-primary); color: white; width: 38px; height: 38px; border-radius: 50%; border: none; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: var(--transition-smooth); }
-        .btn-add:hover { background: var(--color-secondary); transform: rotate(90deg); }
+        .price { font-size: 1.3rem; font-weight: 800; color: var(--color-secondary); }
+        .btn-add { background: var(--color-primary); color: white; width: 42px; height: 42px; border-radius: 50%; border: none; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; transition: var(--transition-smooth); cursor: pointer; box-shadow: 0 4px 10px rgba(211, 84, 0, 0.2); }
+        .btn-add:hover { background: var(--color-secondary); transform: scale(1.1) rotate(90deg); }
 
-        /* UI Elements */
-        .cart-trigger { position: fixed; bottom: 2rem; right: 2rem; background: var(--color-secondary); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(44, 62, 80, 0.4); border: none; font-size: 1.4rem; z-index: 900; transition: var(--transition-smooth); }
+        /* UI Elements: Botones Flotantes */
+        .floating-actions {
+            position: fixed; bottom: 2rem; right: 2rem;
+            display: flex; flex-direction: column; gap: 1rem;
+            align-items: flex-end; z-index: 900;
+        }
+
+        /* Botón Carrito */
+        .cart-trigger { 
+            background: var(--color-secondary); color: white; 
+            width: 65px; height: 65px; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            box-shadow: 0 8px 25px rgba(44, 62, 80, 0.4); border: none; 
+            font-size: 1.5rem; transition: var(--transition-smooth); 
+            position: relative;
+        }
         .cart-trigger:hover { transform: scale(1.1); }
-        .cart-badge { position: absolute; top: -5px; right: -5px; background: var(--color-primary); color: white; font-size: 0.75rem; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 2px solid white; }
+        .cart-badge { position: absolute; top: -5px; right: -5px; background: var(--color-primary); color: white; font-size: 0.8rem; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+
+        /* Botón WhatsApp Flotante (NUEVO) */
+        .btn-whatsapp-float {
+            background: var(--color-whatsapp); color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            border: none; transition: var(--transition-smooth);
+            animation: pulse 2s infinite;
+            text-decoration: none;
+        }
+        .btn-whatsapp-float:hover { transform: scale(1.1); animation: none; }
+        .btn-whatsapp-float svg { width: 32px; height: 32px; fill: white; }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
 
         .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--color-secondary); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); opacity: 0; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 2000; display: flex; align-items: center; gap: 0.8rem; }
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
         /* Carrito Sidebar */
-        .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); opacity: 0; pointer-events: none; transition: 0.3s; z-index: 1001; backdrop-filter: blur(2px); }
-        .cart-sidebar { position: fixed; top: 0; right: 0; width: 400px; max-width: 100%; height: 100vh; background: white; transform: translateX(100%); transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1); z-index: 1002; display: flex; flex-direction: column; box-shadow: -10px 0 40px rgba(0,0,0,0.1); }
+        .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); opacity: 0; pointer-events: none; transition: 0.3s; z-index: 1001; backdrop-filter: blur(4px); }
+        .cart-sidebar { position: fixed; top: 0; right: 0; width: 420px; max-width: 100%; height: 100vh; background: white; transform: translateX(100%); transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1); z-index: 1002; display: flex; flex-direction: column; box-shadow: -10px 0 40px rgba(0,0,0,0.15); }
         .cart-open .cart-overlay { opacity: 1; pointer-events: auto; }
         .cart-open .cart-sidebar { transform: translateX(0); }
 
         .sidebar-header { padding: 1.5rem; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; background: #fdfdfd; }
+        .sidebar-header h3 { font-size: 1.4rem; font-weight: 700; color: var(--color-secondary); }
         .sidebar-body { flex: 1; overflow-y: auto; padding: 1.5rem; }
         
         .cart-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: center; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
         
         .cart-item-details { flex: 1; }
-        .cart-item-title { font-weight: 600; font-size: 0.95rem; display: block; margin-bottom: 0.2rem; }
-        .cart-item-price { color: var(--color-primary); font-size: 0.9rem; font-weight: 500; }
-        .qty-control { display: flex; align-items: center; gap: 0.5rem; background: #f1f2f6; padding: 0.2rem; border-radius: 20px; }
-        .qty-btn { width: 28px; height: 28px; border-radius: 50%; border: none; background: white; cursor: pointer; font-weight: bold; color: var(--color-secondary); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .cart-item-title { font-weight: 600; font-size: 1rem; display: block; margin-bottom: 0.2rem; }
+        .cart-item-price { color: var(--color-primary); font-size: 0.95rem; font-weight: 700; }
+        .qty-control { display: flex; align-items: center; gap: 0.5rem; background: #f1f2f6; padding: 0.3rem; border-radius: 20px; }
+        .qty-btn { width: 30px; height: 30px; border-radius: 50%; border: none; background: white; cursor: pointer; font-weight: bold; color: var(--color-secondary); box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: 0.2s; }
+        .qty-btn:hover { background: var(--color-primary); color: white; }
 
-        /* Estilos del Selector (Pagos y Delivery Reutilizados) */
+        /* Estilos Selector */
         .option-section { margin-top: 0.5rem; margin-bottom: 1.5rem; }
-        .option-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.8rem; color: var(--color-text-main); display: block;}
+        .option-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--color-text-main); display: block;}
         
-        /* Grid para Pagos (3 columnas) */
         .payment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
-        
-        /* Grid para Delivery (2 columnas) */
         .delivery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
         .option-card {
-            border: 2px solid #eee;
-            border-radius: 12px;
-            padding: 0.6rem 0.2rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            position: relative;
-            background: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 60px;
+            border: 2px solid #f0f0f0; border-radius: 12px; padding: 0.8rem 0.4rem; text-align: center;
+            cursor: pointer; transition: all 0.2s ease; position: relative; background: white;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 70px;
         }
-
-        .option-card:hover { transform: translateY(-2px); border-color: #ddd; }
-        .option-card span { font-size: 0.75rem; font-weight: 700; display: block; margin-top: 0.2rem; }
+        .option-card:hover { transform: translateY(-3px); border-color: #ddd; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .option-card span { font-size: 0.8rem; font-weight: 700; display: block; margin-top: 0.4rem; }
         
-        /* Estilos específicos de marca */
+        /* Colores Marcas */
         .option-card.yape { color: var(--brand-yape); }
-        .option-card.yape.selected { background-color: rgba(116, 34, 132, 0.1); border-color: var(--brand-yape); }
-        
+        .option-card.yape.selected { background-color: rgba(116, 34, 132, 0.08); border-color: var(--brand-yape); }
         .option-card.plin { color: #0099cc; }
-        .option-card.plin.selected { background-color: rgba(0, 200, 250, 0.1); border-color: #00C8FA; }
-        
+        .option-card.plin.selected { background-color: rgba(0, 200, 250, 0.08); border-color: #00C8FA; }
         .option-card.bcp { color: var(--brand-bcp); }
-        .option-card.bcp.selected { background-color: rgba(0, 42, 141, 0.1); border-color: var(--brand-bcp); }
-        
+        .option-card.bcp.selected { background-color: rgba(0, 42, 141, 0.08); border-color: var(--brand-bcp); }
         .option-card.bbva { color: var(--brand-bbva); }
-        .option-card.bbva.selected { background-color: rgba(0, 68, 129, 0.1); border-color: var(--brand-bbva); }
-        
+        .option-card.bbva.selected { background-color: rgba(0, 68, 129, 0.08); border-color: var(--brand-bbva); }
         .option-card.visa { color: var(--brand-visa); }
-        .option-card.visa.selected { background-color: rgba(26, 31, 113, 0.1); border-color: var(--brand-visa); }
-
-        /* Estilos Delivery */
+        .option-card.visa.selected { background-color: rgba(26, 31, 113, 0.08); border-color: var(--brand-visa); }
         .option-card.delivery { color: var(--color-primary); }
-        .option-card.delivery.selected { background-color: rgba(211, 84, 0, 0.1); border-color: var(--color-primary); }
-
+        .option-card.delivery.selected { background-color: rgba(211, 84, 0, 0.08); border-color: var(--color-primary); }
         .option-card.pickup { color: var(--color-secondary); }
-        .option-card.pickup.selected { background-color: rgba(44, 62, 80, 0.1); border-color: var(--color-secondary); }
+        .option-card.pickup.selected { background-color: rgba(44, 62, 80, 0.08); border-color: var(--color-secondary); }
 
-        .check-icon {
-            position: absolute; top: -5px; right: -5px;
-            background: var(--color-whatsapp); color: white;
-            border-radius: 50%; width: 18px; height: 18px;
-            font-size: 10px; display: none; align-items: center; justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
+        .check-icon { position: absolute; top: -8px; right: -8px; background: var(--color-whatsapp); color: white; border-radius: 50%; width: 22px; height: 22px; font-size: 12px; display: none; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2); border: 2px solid white; }
         .option-card.selected .check-icon { display: flex; }
 
-        .sidebar-footer { padding: 1.5rem; background: #f9f9f9; border-top: 1px solid #eee; }
-        .btn-whatsapp-block { width: 100%; background: var(--color-whatsapp); color: white; padding: 1rem; border-radius: 12px; border: none; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 1rem; transition: var(--transition-smooth); cursor: pointer; }
-        .btn-whatsapp-block:hover { background: #1ebc57; transform: translateY(-2px); }
-        .btn-whatsapp-block:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+        .sidebar-footer { padding: 1.5rem; background: #fdfbf7; border-top: 1px solid #eee; }
+        .btn-whatsapp-block { width: 100%; background: var(--color-whatsapp); color: white; padding: 1.1rem; border-radius: 50px; border: none; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 0.6rem; font-size: 1.05rem; transition: var(--transition-smooth); cursor: pointer; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
+        .btn-whatsapp-block:hover { background: #1ebc57; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
+        
+        .empty-cart-msg { text-align: center; color: var(--color-text-muted); padding-top: 3rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+        .empty-icon { font-size: 4rem; opacity: 0.6; animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
 
-        .empty-cart-msg { text-align: center; color: var(--color-text-muted); padding-top: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
-        .empty-icon { font-size: 3rem; opacity: 0.5; }
-
-        /* Social Media */
-        .footer-content { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+        /* Social */
+        .footer-content { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
         .social-section { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; margin-top: 1rem; }
-        .social-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1.5rem; opacity: 0.8; font-weight: 600; }
+        .social-title { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; opacity: 0.8; font-weight: 700; }
         .social-icons { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
-        
-        .social-link { 
-            color: white; 
-            transition: var(--transition-smooth); 
-            opacity: 0.8; 
-            background: rgba(255,255,255,0.1);
-            width: 45px; height: 45px;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-        }
-        
-        .social-link:hover { opacity: 1; transform: translateY(-3px); background: white; }
-        .social-link svg { width: 20px; height: 20px; fill: currentColor; }
-        
-        /* Brand Colors on Hover */
-        .social-link.fb:hover { color: #1877F2; }
-        .social-link.ig:hover { color: #E4405F; }
-        .social-link.tt:hover { color: #000000; }
-        .social-link.yt:hover { color: #FF0000; }
+        .social-link { color: white; transition: var(--transition-smooth); opacity: 0.8; background: rgba(255,255,255,0.1); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .social-link:hover { opacity: 1; transform: translateY(-5px); background: white; }
+        .social-link svg { width: 24px; height: 24px; fill: currentColor; }
+        .social-link.fb:hover { color: #1877F2; } .social-link.ig:hover { color: #E4405F; } .social-link.tt:hover { color: #000000; } .social-link.yt:hover { color: #FF0000; }
 
         @media (max-width: 768px) {
             .hero-grid { grid-template-columns: 1fr; text-align: center; }
-            .hero-content h2 { font-size: 2.5rem; }
+            .hero-content h2 { font-size: 3rem; }
+            .hero-content p { margin: 0 auto 2.5rem; }
+            .cta-group { justify-content: center; }
             .hero-image-container { display: none; }
             .products-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-            .search-container { max-width: 100%; }
+            .floating-actions { right: 1.5rem; bottom: 1.5rem; }
         }
         @media (max-width: 480px) {
             .products-grid { grid-template-columns: 1fr; }
             .payment-grid { grid-template-columns: repeat(3, 1fr); }
-            .social-icons { gap: 1rem; }
+            .delivery-grid { grid-template-columns: 1fr; }
+            .hero-content h2 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -332,11 +416,11 @@
                 <img src="https://i.postimg.cc/zvyMjS1f/logo.jpg" alt="Logo Rocket's">
                 <div class="brand-text">
                     <h1>Rocket's</h1>
-                    <span>Panadería & Pastelería</span>
+                    <span>Panadería Artesanal</span>
                 </div>
             </div>
             <div class="nav-actions">
-                <a href="https://wa.me/51925940657?text=Hola%20Rocket's!%20%F0%9F%9A%80%20Estoy%20visitando%20su%20cat%C3%A1logo%20web%20y%20estoy%20interesado%20en%20sus%20productos." class="btn-contact" target="_blank">Contactar</a>
+                <a href="https://wa.me/51925940657?text=Hola%20Rocket's!%20%F0%9F%9A%80%20Estoy%20visitando%20su%20cat%C3%A1logo%20web%20y%20estoy%20interesado%20en%20sus%20productos." class="btn-contact" target="_blank">Chatea con nosotros</a>
             </div>
         </div>
     </header>
@@ -344,24 +428,32 @@
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <h2>El sabor de lo <br><span>Recién Horneado</span></h2>
-                <p>Descubre nuestros productos artesanales hechos con amor. Desde el desayuno hasta el antojo de medianoche.</p>
+                <!-- COPYWRITING PERSUASIVO -->
+                <h2>Horneamos Felicidad <br><span>Todos los Días</span></h2>
+                <p>Descubre el sabor auténtico de lo artesanal. Panes crujientes, postres esponjosos y el aroma inconfundible que te hará sentir en casa. ¡Pide ahora y disfruta!</p>
                 <div class="cta-group">
-                    <button class="btn-primary" onclick="scrollToMenu()">Ver Menú</button>
-                    <a href="https://wa.me/51925940657?text=Hola%20Rocket's!%20%F0%9F%9A%80%20Tengo%20una%20consulta%20sobre%20el%20cat%C3%A1logo%20digital." style="display:flex; align-items:center; color:var(--color-primary); font-weight:600;">
-                        Consultas <span style="margin-left:5px">→</span>
+                    <button class="btn-primary" onclick="scrollToMenu()">
+                        ¡Quiero mi pedido! 🥐
+                    </button>
+                    <a href="https://wa.me/51925940657?text=Hola%20Rocket's!%20%F0%9F%9A%80%20Tengo%20una%20consulta%20sobre%20el%20cat%C3%A1logo%20digital." class="btn-secondary-link">
+                        Hacer una consulta →
                     </a>
                 </div>
             </div>
             <div class="hero-image-container">
-                <div class="hero-card">
-                    <img src="https://i.postimg.cc/43rBGkC9/Cachitor.jpg" alt="Producto Estrella">
-                    <div style="margin-top: 1rem; display:flex; justify-content:space-between; align-items:center;">
-                        <div>
-                            <h4 style="font-size:1.1rem; margin-bottom:0.2rem">Cachito Relleno</h4>
-                            <span style="color:var(--color-text-muted); font-size:0.9rem">El favorito de la casa</span>
+                <!-- CARRUSEL HERO: EL BLOQUE ENTERO SE MUEVE -->
+                <div class="hero-card" id="heroCardBlock">
+                    <div class="hero-tag">¡Más Vendido! 🔥</div>
+                    <!-- Contenedor interno -->
+                    <div class="hero-card-inner">
+                        <img id="heroImg" src="https://i.postimg.cc/43rBGkC9/Cachitor.jpg" alt="Producto Estrella">
+                        <div style="margin-top: 1.2rem; display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <h4 id="heroTitle" style="font-size:1.2rem; margin-bottom:0.3rem">Cachito Relleno</h4>
+                                <span id="heroSubtitle" style="color:var(--color-text-muted); font-size:0.9rem">Suave y doradito</span>
+                            </div>
+                            <span id="heroPrice" style="color:var(--color-primary); font-weight:800; font-size:1.4rem">S/ 1.50</span>
                         </div>
-                        <span style="color:var(--color-primary); font-weight:bold; font-size:1.2rem">S/ 1.50</span>
                     </div>
                 </div>
             </div>
@@ -370,17 +462,16 @@
 
     <!-- Filtros y Búsqueda -->
     <div class="container controls-section" id="menu-start">
-        
         <div class="search-container">
             <span class="search-icon">🔍</span>
-            <input type="search" id="searchInput" class="search-input" placeholder="Buscar alfajor, empanada...">
+            <input type="search" id="searchInput" class="search-input" placeholder="¿Qué se te antoja hoy? (Ej. Alfajor, Empanada...)">
         </div>
 
         <div class="filter-tabs" id="filterContainer">
             <button class="filter-btn active" data-category="all">Todos</button>
-            <button class="filter-btn" data-category="dulces">Dulces</button>
-            <button class="filter-btn" data-category="salados">Salados</button>
-            <button class="filter-btn" data-category="promos">Promociones</button>
+            <button class="filter-btn" data-category="dulces">Dulces Pecados 🍩</button>
+            <button class="filter-btn" data-category="salados">Antojos Salados 🥟</button>
+            <button class="filter-btn" data-category="promos">¡OFERTAS! 🏷️</button>
         </div>
     </div>
 
@@ -388,46 +479,53 @@
         <!-- JS Render -->
     </main>
 
-    <footer style="background:var(--color-secondary); color:white; padding:3rem 0; text-align:center;">
+    <footer style="background:var(--color-secondary); color:white; padding:4rem 0; text-align:center;">
         <div class="container footer-content">
             <div>
-                <h3 style="color:white; margin-bottom:0.5rem;">Rocket's</h3>
-                <p style="opacity:0.7; max-width:500px; margin:0 auto; font-size: 0.95rem;">San Pedro de Saño, Huancayo. Llevando dulzura a tu hogar.</p>
+                <h3 style="color:white; margin-bottom:0.8rem; font-size: 1.8rem;">Rocket's Bakery</h3>
+                <p style="opacity:0.8; max-width:600px; margin:0 auto; font-size: 1rem; line-height: 1.8;">
+                    En San Pedro de Saño, Huancayo. <br>
+                    Llevamos la tradición y el cariño a tu mesa desde el primer amasado.
+                </p>
             </div>
             
             <!-- SECCIÓN REDES SOCIALES -->
             <div class="social-section">
-                <span class="social-title">Síguenos en nuestras redes</span>
+                <span class="social-title">Únete a nuestra comunidad</span>
                 <div class="social-icons">
-                    <!-- Facebook -->
                     <a href="https://facebook.com" target="_blank" class="social-link fb" aria-label="Facebook">
                         <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                     </a>
-                    <!-- Instagram -->
                     <a href="https://instagram.com" target="_blank" class="social-link ig" aria-label="Instagram">
                         <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
-                    <!-- TikTok -->
                     <a href="https://tiktok.com" target="_blank" class="social-link tt" aria-label="TikTok">
                         <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
                     </a>
-                    <!-- YouTube -->
                     <a href="https://youtube.com" target="_blank" class="social-link yt" aria-label="YouTube">
                         <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
                     </a>
                 </div>
             </div>
 
-            <div style="font-size:0.85rem; opacity:0.5; margin-top:1rem;">
-                &copy; <span id="year"></span> Rocket's Bakery.
+            <div style="font-size:0.85rem; opacity:0.5; margin-top:2rem;">
+                &copy; <span id="year"></span> Rocket's Bakery. Desarrollado con excelencia.
             </div>
         </div>
     </footer>
 
-    <button class="cart-trigger" onclick="toggleCart()">
-        🛒
-        <span class="cart-badge" id="cartCount">0</span>
-    </button>
+    <!-- BOTONES FLOTANTES: WHATSAPP Y CARRITO -->
+    <div class="floating-actions">
+        <!-- Nuevo Botón WhatsApp Flotante -->
+        <a href="https://wa.me/51925940657?text=Hola%20Rocket's!%20%F0%9F%9A%80%20Se%20me%20antoj%C3%B3%20algo%20delicioso." class="btn-whatsapp-float" target="_blank" aria-label="Chat WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        </a>
+
+        <button class="cart-trigger" onclick="toggleCart()">
+            🛒
+            <span class="cart-badge" id="cartCount">0</span>
+        </button>
+    </div>
 
     <div class="toast" id="toast">
         <span style="font-size:1.2rem">✅</span>
@@ -439,7 +537,7 @@
         <aside class="cart-sidebar">
             <div class="sidebar-header">
                 <h3>Tu Pedido</h3>
-                <button onclick="toggleCart()" style="background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+                <button onclick="toggleCart()" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color: var(--color-text-muted);">&times;</button>
             </div>
             
             <div class="sidebar-body" id="cartItemsContainer"></div>
@@ -501,42 +599,42 @@
                 </div>
                 <button class="btn-whatsapp-block" id="checkoutBtn" onclick="checkoutWhatsApp()">
                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                    Pedir por WhatsApp
+                    Confirmar Pedido 🚀
                 </button>
             </div>
         </aside>
     </div>
 
     <script>
-        // --- 1. DATA LAYER ---
+        // --- 1. DATA LAYER (Actualizado con descripciones más apetitosas) ---
         const productsDB = [
-            { id: 1, name: "Cachito", price: 1.50, cat: "dulces", img: "https://i.postimg.cc/HLfBmDGM/cachito.webp", desc: "Clásico, doradito y suave." },
-            { id: 2, name: "Alfajor", price: 2.00, cat: "dulces", img: "https://i.postimg.cc/VN3DwQyd/Alfajor.webp", desc: "Relleno abundante de manjar." },
-            { id: 3, name: "Pie de Piña", price: 2.00, cat: "dulces", img: "https://i.postimg.cc/W3gSbWj7/piepina.jpg", desc: "Frutal y refrescante." },
-            { id: 4, name: "Pie de Manzana", price: 2.00, cat: "dulces", img: "https://i.postimg.cc/PxYKr3hW/manzana.jpg", desc: "Con un toque de canela." },
-            { id: 5, name: "Budín", price: 1.00, cat: "dulces", img: "https://i.postimg.cc/CKWm0Tyf/bodin.jpg", desc: "Húmedo y tradicional." },
-            { id: 6, name: "Queque Chocolate", price: 1.50, cat: "dulces", img: "https://i.postimg.cc/k4KwX19t/kequechoc.jpg", desc: "Puro sabor a cacao." },
-            { id: 7, name: "Queque Vainilla", price: 1.50, cat: "dulces", img: "https://i.postimg.cc/sX7KD6yB/kekevai.jpg", desc: "Esponjoso y aromático." },
-            { id: 8, name: "Leche Asada", price: 1.50, cat: "dulces", img: "https://i.postimg.cc/26hT8cmZ/lechea.jpg", desc: "Cremosa receta casera." },
-            { id: 9, name: "Pionono", price: 1.50, cat: "dulces", img: "https://i.postimg.cc/KzBQvqFQ/pionono.jpg", desc: "Enrollado con manjar." },
-            { id: 10, name: "Ojo de Buey", price: 1.50, cat: "dulces", img: "https://i.postimg.cc/26hT8cm4/ojo-voy.jpg", desc: "Centro dulce y masa suave." },
-            { id: 11, name: "Enrollado Canela", price: 4.00, cat: "dulces", img: "https://i.postimg.cc/B6HNQYsp/rollo.jpg", desc: "Estilo cinnamon roll." }, 
-            { id: 12, name: "Enrollado Hot Dog", price: 1.50, cat: "salados", img: "https://i.postimg.cc/FR3GsWmz/hot.jpg", desc: "Favorito de los niños." },
-            { id: 13, name: "Empanada Mixta", price: 3.00, cat: "salados", img: "https://i.postimg.cc/63nz5jw3/empa.jpg", desc: "Jamón y queso derretido." },
-            { id: 14, name: "Empanada Carne", price: 3.00, cat: "salados", img: "https://i.postimg.cc/N0WptqhT/carne.jpg", desc: "Relleno jugoso casero." },
-            { id: 15, name: "Empanada Pollo", price: 3.00, cat: "salados", img: "https://i.postimg.cc/JnZK46mq/pollo.jpg", desc: "Pollo deshilachado." },
-            { id: 16, name: "Galletas Choco (x3)", price: 1.50, cat: "promos", img: "https://i.postimg.cc/B6HNQYsv/choco.jpg", desc: "Crujientes y deliciosas." },
-            { id: 17, name: "Galletas Maicena (x2)", price: 1.50, cat: "promos", img: "https://i.postimg.cc/4dVwNLZt/maicena.webp", desc: "Se deshacen en tu boca." },
-            { id: 18, name: "Empanaditas Boda (x2)", price: 1.50, cat: "promos", img: "https://i.postimg.cc/R0jXm5rJ/boda.webp", desc: "Bocaditos dulces." },
-            { id: 19, name: "Panes de Maíz (x4)", price: 1.00, cat: "promos", img: "https://i.postimg.cc/wvLFTfHN/maiz.jpg", desc: "Ideal para el lonche." },
+            { id: 1, name: "Cachito Relleno", price: 1.50, cat: "dulces", img: "https://i.postimg.cc/HLfBmDGM/cachito.webp", desc: "Masa doradita y suave, el clásico desayuno." },
+            { id: 2, name: "Alfajor Artesanal", price: 2.00, cat: "dulces", img: "https://i.postimg.cc/VN3DwQyd/Alfajor.webp", desc: "Se deshace en tu boca, full manjar." },
+            { id: 3, name: "Pie de Piña", price: 2.00, cat: "dulces", img: "https://i.postimg.cc/W3gSbWj7/piepina.jpg", desc: "Trocitos de fruta natural y masa crocante." },
+            { id: 4, name: "Pie de Manzana", price: 2.00, cat: "dulces", img: "https://i.postimg.cc/PxYKr3hW/manzana.jpg", desc: "Aroma a canela y manzana caramelizada." },
+            { id: 5, name: "Budín Casero", price: 1.00, cat: "dulces", img: "https://i.postimg.cc/CKWm0Tyf/bodin.jpg", desc: "Húmedo, dulce y con pasas selectas." },
+            { id: 6, name: "Queque Chocolate", price: 1.50, cat: "dulces", img: "https://i.postimg.cc/k4KwX19t/kequechoc.jpg", desc: "Intenso cacao, esponjosidad garantizada." },
+            { id: 7, name: "Queque Vainilla", price: 1.50, cat: "dulces", img: "https://i.postimg.cc/sX7KD6yB/kekevai.jpg", desc: "El sabor de siempre, suave y aromático." },
+            { id: 8, name: "Leche Asada", price: 1.50, cat: "dulces", img: "https://i.postimg.cc/26hT8cmZ/lechea.jpg", desc: "Cremosidad pura con su costra dorada." },
+            { id: 9, name: "Pionono Real", price: 1.50, cat: "dulces", img: "https://i.postimg.cc/KzBQvqFQ/pionono.jpg", desc: "Enrollado perfecto con abundante manjar." },
+            { id: 10, name: "Ojo de Buey", price: 1.50, cat: "dulces", img: "https://i.postimg.cc/26hT8cm4/ojo-voy.jpg", desc: "Centro de bizcocho dulce y bordes suaves." },
+            { id: 11, name: "Rollo de Canela", price: 4.00, cat: "dulces", img: "https://i.postimg.cc/B6HNQYsp/rollo.jpg", desc: "Glaseado especial y canela aromática." }, 
+            { id: 12, name: "Enrollado Hot Dog", price: 1.50, cat: "salados", img: "https://i.postimg.cc/FR3GsWmz/hot.jpg", desc: "La opción favorita para la lonchera." },
+            { id: 13, name: "Empanada Mixta", price: 3.00, cat: "salados", img: "https://i.postimg.cc/63nz5jw3/empa.jpg", desc: "Jamón y queso derretido en masa hojaldre." },
+            { id: 14, name: "Empanada Carne", price: 3.00, cat: "salados", img: "https://i.postimg.cc/N0WptqhT/carne.jpg", desc: "Relleno jugoso y sazón casera." },
+            { id: 15, name: "Empanada Pollo", price: 3.00, cat: "salados", img: "https://i.postimg.cc/JnZK46mq/pollo.jpg", desc: "Pollo deshilachado y aderezo suave." },
+            { id: 16, name: "Galletas Choco (x3)", price: 1.50, cat: "promos", img: "https://i.postimg.cc/B6HNQYsv/choco.jpg", desc: "Crujientes, con chispas de verdad." },
+            { id: 17, name: "Galletas Maicena (x2)", price: 1.50, cat: "promos", img: "https://i.postimg.cc/4dVwNLZt/maicena.webp", desc: "Suavidad que se deshace al morder." },
+            { id: 18, name: "Bocaditos Boda (x2)", price: 1.50, cat: "promos", img: "https://i.postimg.cc/R0jXm5rJ/boda.webp", desc: "Pequeños placeres rellenos de dulce." },
+            { id: 19, name: "Panes de Maíz (x4)", price: 1.00, cat: "promos", img: "https://i.postimg.cc/wvLFTfHN/maiz.jpg", desc: "Sabor rústico ideal para el café." },
         ];
 
         let cart = [];
-        let selectedPayment = ''; // Estado del método de pago
-        let selectedDelivery = ''; // Nuevo Estado de Delivery
+        let selectedPayment = ''; 
+        let selectedDelivery = ''; 
         const WHATSAPP_NUM = "51925940657";
 
-        // --- 2. PERSISTENCIA (LOCALSTORAGE) ---
+        // --- 2. PERSISTENCIA ---
         function saveCart() {
             localStorage.setItem('rockets_cart', JSON.stringify(cart));
         }
@@ -553,8 +651,8 @@
 
         function renderProducts(filterType = 'all', searchTerm = '') {
             const container = document.getElementById('productsContainer');
-            container.innerHTML = '';
             
+            // FILTRADO
             const filtered = productsDB.filter(p => {
                 const matchesCat = filterType === 'all' || p.cat === filterType;
                 const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -562,28 +660,37 @@
                 return matchesCat && matchesSearch;
             });
 
+            // LIMPIEZA INICIAL DEL GRID
+            container.innerHTML = '';
+
             if (filtered.length === 0) {
                 container.innerHTML = `
-                    <div style="grid-column: 1/-1; text-align:center; padding: 2rem; color: var(--color-text-muted);">
-                        <p>No encontramos productos que coincidan. 🍩</p>
+                    <div style="grid-column: 1/-1; text-align:center; padding: 3rem; color: var(--color-text-muted);">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🍩</div>
+                        <p style="font-size: 1.2rem;">¡Ups! No encontramos ese antojito.<br>Intenta buscando otra delicia.</p>
                     </div>
                 `;
                 return;
             }
 
-            filtered.forEach(p => {
+            // RENDERIZADO CON ANIMACIÓN ESCALONADA
+            filtered.forEach((p, index) => {
+                // Cálculo de delay matemático para el efecto "sierra" (ola)
+                // Cada item espera 0.1s más que el anterior
+                const delay = index * 0.1; 
+                
                 const card = `
-                    <article class="product-card">
+                    <article class="product-card" style="animation-delay: ${delay}s">
                         <div class="card-image">
                             <img src="${p.img}" alt="${p.name}" loading="lazy">
-                            <span class="badge">${p.cat === 'promos' ? 'Oferta' : p.cat}</span>
+                            <span class="badge">${p.cat === 'promos' ? '¡OFERTA!' : 'Fresco'}</span>
                         </div>
                         <div class="card-content">
                             <h3 class="card-title">${p.name}</h3>
                             <p class="card-desc">${p.desc}</p>
                             <div class="card-footer">
                                 <div><div class="price">S/ ${p.price.toFixed(2)}</div></div>
-                                <button class="btn-add" onclick="addToCart(${p.id})" aria-label="Agregar">+</button>
+                                <button class="btn-add" onclick="addToCart(${p.id})" aria-label="Agregar al carrito">+</button>
                             </div>
                         </div>
                     </article>
@@ -594,20 +701,27 @@
 
         let currentCategory = 'all';
 
+        // GESTOR DE EVENTOS DE FILTRADO (TAB SWITCHING)
         document.getElementById('filterContainer').addEventListener('click', (e) => {
             if(e.target.classList.contains('filter-btn')) {
+                // Actualizar UI botones
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                 e.target.classList.add('active');
                 
                 currentCategory = e.target.dataset.category;
                 const searchTerm = document.getElementById('searchInput').value;
-                
                 const grid = document.getElementById('productsContainer');
-                grid.style.opacity = '0';
+                
+                // 1. FADE OUT: Agregamos clase de salida
+                grid.classList.add('grid-hidden');
+                
+                // 2. WAIT & RENDER: Esperamos que termine la transición de opacidad (300ms)
                 setTimeout(() => {
                     renderProducts(currentCategory, searchTerm);
-                    grid.style.opacity = '1';
-                }, 200);
+                    
+                    // 3. FADE IN: Quitamos la clase oculta para que se disparen las animaciones de las tarjetas
+                    grid.classList.remove('grid-hidden');
+                }, 300);
             }
         });
 
@@ -619,7 +733,7 @@
             document.getElementById('menu-start').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // --- 4. LÓGICA DE NEGOCIO (CARRITO Y PAGOS) ---
+        // --- 4. LÓGICA DE NEGOCIO ---
 
         function addToCart(id) {
             const product = productsDB.find(p => p.id === id);
@@ -633,7 +747,7 @@
 
             saveCart();
             updateCartUI();
-            showToast(`Agregaste ${product.name}`);
+            showToast(`¡Qué rico! Agregaste ${product.name}`);
         }
 
         function removeFromCart(id) {
@@ -654,27 +768,19 @@
             }
         }
 
-        // Selección de Método de Pago
         function selectPayment(method) {
             selectedPayment = method;
-            
-            // UI Update
             document.querySelectorAll('#paymentSection .option-card').forEach(el => el.classList.remove('selected'));
             
-            // Map method to class
             const classMap = { 'Yape': 'yape', 'Plin': 'plin', 'BCP': 'bcp', 'BBVA': 'bbva', 'Visa': 'visa' };
             const selectedClass = classMap[method];
-            
             if(selectedClass) {
                 document.querySelector(`#paymentSection .option-card.${selectedClass}`).classList.add('selected');
             }
         }
 
-        // Selección de Método de Entrega
         function selectDelivery(method) {
             selectedDelivery = method;
-
-            // UI Update
             document.querySelectorAll('#deliverySection .option-card').forEach(el => el.classList.remove('selected'));
             
             if(method === 'Delivery') {
@@ -697,7 +803,8 @@
                 container.innerHTML = `
                     <div class="empty-cart-msg">
                         <span class="empty-icon">🥐</span>
-                        <p>Tu carrito está vacío.<br>¡Agrega algo delicioso!</p>
+                        <p style="font-weight: 500;">Tu carrito está esperando...<br>¡Agrega algo delicioso!</p>
+                        <button onclick="toggleCart(); scrollToMenu()" class="btn-primary" style="font-size: 0.9rem; padding: 0.8rem 1.5rem;">Ir al Menú</button>
                     </div>`;
                 totalEl.innerText = "S/ 0.00";
                 paymentSection.style.display = 'none';
@@ -716,14 +823,14 @@
                 total += subtotal;
                 html += `
                     <div class="cart-item">
-                        <img src="${item.img}" style="width:50px; height:50px; border-radius:8px; object-fit:cover;">
+                        <img src="${item.img}" style="width:60px; height:60px; border-radius:10px; object-fit:cover;">
                         <div class="cart-item-details">
                             <span class="cart-item-title">${item.name}</span>
                             <span class="cart-item-price">S/ ${subtotal.toFixed(2)}</span>
                         </div>
                         <div class="qty-control">
                             <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
-                            <span>${item.qty}</span>
+                            <span style="font-weight:600; font-size:0.9rem; min-width:20px; text-align:center;">${item.qty}</span>
                             <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
                         </div>
                     </div>
@@ -746,11 +853,9 @@
         }
 
         function checkoutWhatsApp() {
-            if(cart.length === 0) return alert("Agrega productos primero :)");
-            
-            // Validación doble
-            if(!selectedDelivery) return alert("Por favor selecciona si deseas Delivery o Recojo en Tienda.");
-            if(!selectedPayment) return alert("Por favor selecciona un método de pago.");
+            if(cart.length === 0) return alert("¡Tu carrito está vacío! Agrega algo rico primero.");
+            if(!selectedDelivery) return alert("Por favor dinos si deseas Delivery o Recojo en Tienda.");
+            if(!selectedPayment) return alert("Por favor selecciona cómo deseas pagar.");
 
             let text = "Hola Rocket's! 🚀\nQuiero realizar el siguiente pedido:\n\n";
             let total = 0;
@@ -760,29 +865,64 @@
                 total += item.price * item.qty;
             });
 
-            text += `\n*TOTAL PRODUCTOS: S/ ${total.toFixed(2)}*`;
+            text += `\n*TOTAL A PAGAR: S/ ${total.toFixed(2)}*`;
             
-            // Info de entrega
             const entregaTexto = selectedDelivery === 'Delivery' ? 'Delivery (Dirección a coordinar) 🛵' : 'Recojo en Tienda 🏪';
-            text += `\n\n*Tipo de Entrega:* ${entregaTexto}`;
-            
-            // Info de pago
-            text += `\n*Método de Pago:* ${selectedPayment} 💳`;
-            
-            text += `\n\nQuedo a la espera de su confirmación y costos de envío si aplica. Gracias!`;
+            text += `\n\n*Entrega:* ${entregaTexto}`;
+            text += `\n*Pago:* ${selectedPayment} 💳`;
+            text += `\n\n¡Quedo atento a su confirmación! Gracias.`;
 
             const url = `https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(text)}`;
             window.open(url, '_blank');
         }
 
+        // --- 5. CARRUSEL HERO ---
+        function initHeroCarousel() {
+            const featuredIds = [1, 13, 3, 16]; 
+            let currentIndex = 0;
+
+            const dom = {
+                cardBlock: document.getElementById('heroCardBlock'),
+                img: document.getElementById('heroImg'),
+                title: document.getElementById('heroTitle'),
+                subtitle: document.getElementById('heroSubtitle'),
+                price: document.getElementById('heroPrice')
+            };
+
+            setInterval(() => {
+                dom.cardBlock.classList.add('slide-exit');
+
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % featuredIds.length;
+                    const product = productsDB.find(p => p.id === featuredIds[currentIndex]);
+
+                    if (product) {
+                        dom.img.src = product.img;
+                        dom.title.textContent = product.name;
+                        dom.subtitle.textContent = product.desc;
+                        dom.price.textContent = `S/ ${product.price.toFixed(2)}`;
+                    }
+
+                    dom.cardBlock.classList.remove('slide-exit');
+                    dom.cardBlock.classList.add('slide-enter-start');
+                    
+                    void dom.cardBlock.offsetWidth; 
+
+                    dom.cardBlock.classList.remove('slide-enter-start');
+                    
+                }, 600); 
+
+            }, 5000); // 5 segundos para mejor lectura
+        }
+
         // Init
         document.getElementById('year').innerText = new Date().getFullYear();
         loadCart(); 
-        renderProducts(); 
+        renderProducts();
+        initHeroCarousel(); 
     </script>
 </body>
 </html>
-
 
 
 
